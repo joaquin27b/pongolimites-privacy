@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PONGO LÍMITES / I SET LIMITS: Privacidad / Privacy</title>
+<style>
+body{margin:0;background:#fff;color:#1b1b1b;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:760px;margin:0 auto;padding:20px 16px 48px}
+h1{font-size:1.5rem;line-height:1.25;margin:.5rem 0}
+h2{font-size:1.15rem;margin:1.6rem 0 .4rem}
+code{overflow-wrap:anywhere;font-size:.9em}
+ul{padding-left:1.2rem}
+li{margin:.45rem 0}
+hr{margin:2.5rem 0;border:0;border-top:1px solid #bbb}
+a{color:#0b57d0}
+</style>
+</head>
+<body>
+<main>
+<p><a href="#es">Español</a> · <a href="#en">English</a></p>
+
+<section id="es" lang="es">
+<h1>Política de privacidad de PONGO LÍMITES</h1>
+<p>En inglés, la app se llama I SET LIMITS.<br>
+ID de la app: <code>com.blair.pongolimites</code><br>
+Desarrollador: ARASAKA<br>
+Contacto: <a href="mailto:arasaka.soft@gmail.com">arasaka.soft@gmail.com</a><br>
+Vigente desde: 2 de noviembre de 2026</p>
+
+<h2>Qué hace la app</h2>
+<p>Con el modo activo, restringe llamadas, SMS, MMS y las apps que elige el usuario. La app no tiene cuentas ni servidor propio, y no incluye analytics propios.</p>
+
+<h2>Roles que solicita</h2>
+<p>Cada rol se elige en una ventana del sistema.</p>
+<ul>
+<li><strong>App de teléfono (DIALER):</strong> mostrar y gestionar llamadas, y cortar las restringidas.</li>
+<li><strong>App de SMS (SMS):</strong> recibir SMS y MMS y guardarlos en el almacén de mensajes del propio teléfono, en silencio si corresponde.</li>
+<li><strong>ID de llamadas (CALL_SCREENING):</strong> rechazar las llamadas restringidas.</li>
+</ul>
+
+<h2>Permisos y para qué se usan</h2>
+<ul>
+<li><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>: mostrar publicidad.</li>
+<li><code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_SPECIAL_USE</code>: mantener activo el filtro local.</li>
+<li><code>POST_NOTIFICATIONS</code>: avisos de la app y de mensajes que no se ocultan.</li>
+<li><code>RECEIVE_BOOT_COMPLETED</code>: restablecer el filtro y la programación al reiniciar el teléfono.</li>
+<li><code>SCHEDULE_EXACT_ALARM</code>: prender y apagar el modo a la hora que elige el usuario. Sin este permiso, el horario funciona igual, con posible demora.</li>
+<li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code>: pedir que el sistema no corte la protección.</li>
+<li><code>CALL_PHONE</code>: llamar desde el marcador de la app.</li>
+<li><code>READ_CONTACTS</code>: buscar contactos y decidir a quién se aplica la restricción.</li>
+<li><code>READ_CALL_LOG</code>, <code>WRITE_CALL_LOG</code>: mostrar el registro de llamadas y borrar entradas si el usuario lo pide.</li>
+<li><code>KILL_BACKGROUND_PROCESSES</code>: cerrar conexiones abiertas de las apps restringidas al activar el modo.</li>
+<li><code>RECEIVE_SMS</code>, <code>RECEIVE_MMS</code>, <code>READ_SMS</code>: necesarios para el rol de SMS; recibir mensajes y guardarlos en el teléfono.</li>
+<li><code>SEND_SMS</code>: necesario para el rol de SMS. La app no envía SMS del usuario ni redacta mensajes. Para MMS, descarga el mensaje y le envía al operador la confirmación técnica de que se descargó.</li>
+<li><code>WAKE_LOCK</code>: lo agregan componentes de terceros incluidos en la app. El código propio de la app no lo usa.</li>
+<li><code>com.google.android.gms.permission.AD_ID</code>, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code>, <code>ACCESS_ADSERVICES_TOPICS</code>: los agrega el SDK de publicidad de Google.</li>
+<li><code>com.blair.pongolimites.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>: permiso técnico interno que agrega la biblioteca AndroidX. No da acceso a datos del usuario.</li>
+</ul>
+
+<h2>VPN local (VpnService)</h2>
+<p>La app crea un túnel en el propio dispositivo, solo para las apps restringidas, para que no tengan salida a internet. No hay servidor VPN. El tráfico de esas apps no se envía a internet ni se guarda.</p>
+
+<h2>Acceso a notificaciones (NotificationListener)</h2>
+<p>Lo habilita el usuario. Con el modo activo, la app lee de cada notificación la app de origen, la categoría y plantilla, y el título o título de conversación. Con eso decide si corresponde a una app o persona restringida y, en ese caso, la borra. No guarda ni envía esos datos.</p>
+
+<h2>Contactos, registro de llamadas y mensajes</h2>
+<p>Los contactos y el registro de llamadas se usan solo en el dispositivo y no se suben a ningún lado. Los contactos elegidos se guardan en el almacenamiento privado de la app. Los SMS y MMS recibidos se guardan en el almacén de mensajes del propio teléfono.</p>
+
+<h2>Publicidad y consentimiento</h2>
+<p>La app muestra banners, anuncios nativos y un anuncio de video a pantalla completa con Google Mobile Ads SDK (AdMob), <code>play-services-ads</code> 25.5.0. AdMob recolecta el ID de publicidad y lo comparte con Google para publicidad.</p>
+<p>La app usa User Messaging Platform de Google, <code>user-messaging-platform</code> 4.0.0, para solicitar consentimiento donde corresponda, como en el Espacio Económico Europeo y el Reino Unido. Mientras no tenga una respuesta válida, no solicita anuncios. Cuando corresponde, la Configuración muestra la entrada "Opciones de privacidad" para cambiar la elección.</p>
+<p>Política de privacidad de Google: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+
+<h2>Borrado de datos</h2>
+<p>Los datos de la app se borran desinstalándola. Los SMS y MMS guardados en el almacén de mensajes del sistema pertenecen al teléfono y se administran desde la app de mensajes.</p>
+
+<h2>Menores</h2>
+<p>La app no está dirigida a menores de 13 años.</p>
+</section>
+
+<hr>
+
+<section id="en" lang="en">
+<h1>I SET LIMITS Privacy Policy</h1>
+<p>In Spanish, the app is called PONGO LÍMITES.<br>
+App ID: <code>com.blair.pongolimites</code><br>
+Developer: ARASAKA<br>
+Contact: <a href="mailto:arasaka.soft@gmail.com">arasaka.soft@gmail.com</a><br>
+Effective date: November 2, 2026</p>
+
+<h2>What the app does</h2>
+<p>When the mode is on, it restricts calls, SMS, MMS and the apps the user chooses. The app has no accounts and no server of its own, and it includes no analytics of its own.</p>
+
+<h2>Roles it requests</h2>
+<p>Each role is chosen in a system window.</p>
+<ul>
+<li><strong>Phone app (DIALER):</strong> show and manage calls, and end restricted ones.</li>
+<li><strong>SMS app (SMS):</strong> receive SMS and MMS and save them in the phone's own message store, silently when applicable.</li>
+<li><strong>Caller ID (CALL_SCREENING):</strong> reject restricted calls.</li>
+</ul>
+
+<h2>Permissions and what they are used for</h2>
+<ul>
+<li><code>INTERNET</code>, <code>ACCESS_NETWORK_STATE</code>: show advertising.</li>
+<li><code>FOREGROUND_SERVICE</code>, <code>FOREGROUND_SERVICE_SPECIAL_USE</code>: keep the local filter running.</li>
+<li><code>POST_NOTIFICATIONS</code>: app alerts and alerts for messages that are not hidden.</li>
+<li><code>RECEIVE_BOOT_COMPLETED</code>: restore the filter and the schedule after the phone restarts.</li>
+<li><code>SCHEDULE_EXACT_ALARM</code>: turn the mode on and off at the time the user chooses. Without it, the schedule still works, with a possible delay.</li>
+<li><code>REQUEST_IGNORE_BATTERY_OPTIMIZATIONS</code>: ask the system not to stop the protection.</li>
+<li><code>CALL_PHONE</code>: place calls from the app's dialer.</li>
+<li><code>READ_CONTACTS</code>: search contacts and decide who the restriction applies to.</li>
+<li><code>READ_CALL_LOG</code>, <code>WRITE_CALL_LOG</code>: show the call log and delete entries when the user asks.</li>
+<li><code>KILL_BACKGROUND_PROCESSES</code>: close open connections of restricted apps when the mode is turned on.</li>
+<li><code>RECEIVE_SMS</code>, <code>RECEIVE_MMS</code>, <code>READ_SMS</code>: required for the SMS role; receive messages and save them on the phone.</li>
+<li><code>SEND_SMS</code>: required for the SMS role. The app does not send the user's SMS or compose messages. For MMS, it downloads the message and sends the carrier the technical confirmation that it was downloaded.</li>
+<li><code>WAKE_LOCK</code>: added by third-party components included in the app. The app's own code does not use it.</li>
+<li><code>com.google.android.gms.permission.AD_ID</code>, <code>ACCESS_ADSERVICES_AD_ID</code>, <code>ACCESS_ADSERVICES_ATTRIBUTION</code>, <code>ACCESS_ADSERVICES_TOPICS</code>: added by Google's advertising SDK.</li>
+<li><code>com.blair.pongolimites.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION</code>: internal technical permission added by the AndroidX library. It gives no access to user data.</li>
+</ul>
+
+<h2>Local VPN (VpnService)</h2>
+<p>The app creates a tunnel on the device itself, only for restricted apps, so they have no way out to the internet. There is no VPN server. The traffic of those apps is not sent to the internet and is not stored.</p>
+
+<h2>Notification access (NotificationListener)</h2>
+<p>The user enables it. When the mode is on, the app reads each notification's source app, category and template, and its title or conversation title. It uses them to decide whether the notification belongs to a restricted app or person and, if so, removes it. It does not store or send this data.</p>
+
+<h2>Contacts, call log and messages</h2>
+<p>Contacts and the call log are used only on the device and are not uploaded anywhere. Chosen contacts are saved in the app's private storage. Received SMS and MMS are saved in the phone's own message store.</p>
+
+<h2>Advertising and consent</h2>
+<p>The app shows banners, native ads and a full-screen video ad using the Google Mobile Ads SDK (AdMob), <code>play-services-ads</code> 25.5.0. AdMob collects the advertising ID and shares it with Google for advertising.</p>
+<p>The app uses Google's User Messaging Platform, <code>user-messaging-platform</code> 4.0.0, to request consent where applicable, such as in the European Economic Area and the United Kingdom. Until it has a valid response, it does not request ads. When applicable, Settings shows a "Privacy options" entry for changing the choice.</p>
+<p>Google Privacy Policy: <a href="https://policies.google.com/privacy">https://policies.google.com/privacy</a></p>
+
+<h2>Data deletion</h2>
+<p>The app's data is deleted by uninstalling it. SMS and MMS saved in the system message store belong to the phone and are managed from the messaging app.</p>
+
+<h2>Children</h2>
+<p>The app is not directed to children under 13.</p>
+</section>
+</main>
+</body>
+</html>
